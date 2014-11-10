@@ -46,3 +46,17 @@ var app = {
 
     }
 };
+
+
+function calculoIMC(){
+    var peso = $("#address8").val();
+    var estatura = $("#tur8").val();
+    if (peso !=='' && estatura !==''){
+        estatura = estatura / 100;
+        var imc = peso / (estatura * estatura);
+        $("#imc").val(imc);
+    }else{
+        $("#imc").val("");
+    }
+
+}

@@ -19,6 +19,9 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
     <name>BControl</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -28,4 +31,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <icon src="img/logo.png" />
 </widget>
