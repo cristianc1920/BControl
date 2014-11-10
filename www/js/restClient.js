@@ -33,13 +33,15 @@ function signUp(){
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '2', data: $('#formSignUp').serialize()})
 			.done(function(data) {
 				var convertidoAJson = JSON.parse(data);
-				var nombre = convertidoAJson['nombre'];
-				var apellido = convertidoAJson['apellido'];
+				var nombre = $("#address2").val();
+				var apellido = $("#tur2").val();
 				var resultado = convertidoAJson['resultado'];
+				emailLog = $("#email2").val();
 				//console.log(nombre);
 				//console.log(apellido);
 				//console.log(resultado);
 				if(resultado === '1'){
+					//getPaciente();
 					$("#address2").val("");
 					$("#tur2").val("");
 					$("#email2").val("");
