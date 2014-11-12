@@ -22,6 +22,9 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <feature name="SpinnerPlugin">
+        <param name="ios-package" value="SpinnerPlugin" />
+    </feature>
     <name>BControl</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -35,5 +38,5 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
-    <icon src="img/logo.png" />
+    <gap:plugin name="it.mobimentum.phonegapspinnerplugin" version="1.2.1" />
 </widget>

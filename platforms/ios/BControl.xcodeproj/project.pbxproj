@@ -39,6 +39,7 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		33CEA91D06A949B883EE1F5B /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E324E0A4EF4E3BBDA844D3 /* CDVStatusBar.m */; };
+		38295818F9A94F9282A13D86 /* SpinnerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEB40D3D55D4AAABAA82BA8 /* SpinnerPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = BControl/config.xml; sourceTree = "<group>"; };
 		83E324E0A4EF4E3BBDA844D3 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		52C1E90DEFAA4881AC7D2763 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5DEB40D3D55D4AAABAA82BA8 /* SpinnerPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SpinnerPlugin.m"; path = "it.mobimentum.phonegapspinnerplugin/SpinnerPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		53C33FD497034F1086A903CA /* SpinnerPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SpinnerPlugin.h"; path = "it.mobimentum.phonegapspinnerplugin/SpinnerPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +230,8 @@
 			children = (
 				83E324E0A4EF4E3BBDA844D3 /* CDVStatusBar.m */,
 				52C1E90DEFAA4881AC7D2763 /* CDVStatusBar.h */,
+				5DEB40D3D55D4AAABAA82BA8 /* SpinnerPlugin.m */,
+				53C33FD497034F1086A903CA /* SpinnerPlugin.h */,
 			);
 			name = Plugins;
 			path = BControl/Plugins;
@@ -422,6 +427,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				33CEA91D06A949B883EE1F5B /* CDVStatusBar.m in Sources */,
+				38295818F9A94F9282A13D86 /* SpinnerPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

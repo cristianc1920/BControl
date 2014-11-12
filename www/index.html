@@ -248,7 +248,7 @@
                 <div data-role="content" >
                     <label for="address">Doctor name</label>
                     <div id="evts"></div>
-                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" onclick="addDoctor()">Save</a>
+                    <a data-icon="flat-heart" data-theme="g" href="#diagnostics"  data-role="button" onclick="addDoctor()">Save</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
@@ -357,20 +357,23 @@
                     <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
                     <h1>Profile</h1>
                 </div>
+                <form id="bnbn">
                 <div data-role="content" >
-                    <form id="formProf">
-                        <label for="address">Name</label>
+                    
+                        <label for="address3">Name</label>
                         <input type="text" name="nombre" id="address3" data-mini="true" placeholder="Patient name"/>
-                        <label for="tur">Apellido</label>
+                        <label for="tur3">Apellido</label>
                         <input type="text" name="apellido" id="tur3" data-mini="true" placeholder="Last name"/>
-                        <label for="email">Email</label>
+                        <label for="emai3l">Email</label>
                         <input type="text" name="email" id="email3" data-mini="true" placeholder="email@dominio.com"/>
-                        <label for="pass">Password</label>
+                        <label for="pass3">Password</label>
                         <input type="password" name="password" id="pass3" data-mini="true" placeholder="********"/>
-                    </form>
-                    <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="updatePaciente()" >Save</a>
+                        <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="updatePaciente()" >Save</a>
+                    
+                    
                     <a data-icon="flat-plus" data-theme="b" href="#shDoctor"  data-role="button" onclick="getListDoctores()" >Edit Doctor</a>
                 </div>
+                </form>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>

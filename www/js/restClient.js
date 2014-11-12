@@ -4,8 +4,15 @@ localStorage.emailLog = '';
 localStorage.logPc = 0;
 
 function login(){
+	console.log('begin');
+	
+	console.log('start');
+	
+	//spinnerplugin.hide();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '1', data: $('#formLogIn').serialize()})
+
 			.done(function(data) {
+				console.log('json');
 				var convertidoAJson = JSON.parse(data);
 				var nombre = convertidoAJson['nombre'];
 				var apellido = convertidoAJson['apellido'];
@@ -16,20 +23,27 @@ function login(){
 				if(logPc === '1'){
 					$("#address1").val("");
 					$("#pass1").val("");
+					
 					$.mobile.changePage('#well','slide');
 					$("#welHead").text("Thanks for log in "+ nombre + " " + apellido);
 				}else{
 					paDonde = '';
-					alert('Email y/o contraseña inválidos');
+					
+					alert('Email and / or password Invalid');
 				}
 				//console.log('DONE');
+				console.log('sale');
 			});
+	//spinnerplugin.hide();
+			
+
 }
 
 function signUp(){
 	var newPass = $("#pass2").val();
 	console.log(newPass);
 	if (newPass !== ''){
+		//spinnerplugin.show();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '2', data: $('#formSignUp').serialize()})
 			.done(function(data) {
 				var convertidoAJson = JSON.parse(data);
@@ -46,19 +60,24 @@ function signUp(){
 					$("#tur2").val("");
 					$("#email2").val("");
 					$("#pass2").val("");
+					//spinnerplugin.hide();
 					$.mobile.changePage('#well','slide');
 					$("#welHead").text("Thanks for sign up "+ nombre + " " + apellido);
 				}else{
+					//spinnerplugin.hide();
 					alert('Something was wrong!');
 				}
 				//console.log('DONE');
 			});
 		}else{
+			//spinnerplugin.hide();
 			alert('Password required');
 		}
+		//spinnerplugin.hide();
 }
 
 function addCrecimiento(){
+	//spinnerplugin.show();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '17', data: $('#formNewCrec').serialize(), email: emailLog})
 			.done(function(data) {
 				console.log(data);
@@ -73,16 +92,20 @@ function addCrecimiento(){
 					$("#email8").val("");
 					$("#pass8").val("");
 					$("#imc").val("");
+					//spinnerplugin.hide();
 					$.mobile.changePage('#well','slide');
 					$("#welHead").text("Thanks for choosing us");
 				}else{
+					//spinnerplugin.hide();
 					alert('Something was wrong!');
 				}
-				//console.log('DONE');
+				console.log('DONE');
 			});
+			//spinnerplugin.hide();
 }
 
 function addDesarrollo(){
+	//spinnerplugin.show();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '18', data: $('#formNewDes').serialize(), email: emailLog})
 			.done(function(data) {
 				console.log(data);
@@ -95,16 +118,20 @@ function addDesarrollo(){
 					$("#age9").val("");
 					$("#per9").val("");
 					getListHistorialCrecimientoPaciente();
+					//spinnerplugin.hide();
 					$.mobile.changePage('#well','slide');
 					$("#welHead").text("Thanks for choosing us");
 				}else{
+					//spinnerplugin.hide();
 					alert('Something was wrong!');
 				}
 				//console.log('DONE');
 			});
+			//spinnerplugin.hide();
 }
 
 function getPaciente(){
+	//spinnerplugin.show();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '3', email: emailLog})
 			.done(function(data) {
 				//console.log('qweqweqwe   '+emailLog);
@@ -124,33 +151,54 @@ function getPaciente(){
 					$("#tur3").val(apellido);
 					$("#email3").val(emailLog);
 					$("#pass3").val("");
+					//spinnerplugin.hide();
 				}else{
+					//spinnerplugin.hide();
 					alert('Something was wrong!');
 				}
 				//console.log('DONE');
 			});
+			//spinnerplugin.hide();
+}
+
+function calculoIMC(){
+    var peso = $("#address8").val();
+    var estatura = $("#tur8").val();
+    if (peso !=='' && estatura !==''){
+        estatura = estatura / 100;
+        var imc = peso / (estatura * estatura);
+        $("#imc").val(imc);
+    }else{
+        $("#imc").val("");
+    }
+
 }
 
 function updatePaciente(){
 	var newPass = $("#pass3").val();
-	//console.log(newPass);
+	var newName = $("#address3").val();
+	var newLastName = $("#tur3").val();
+	var newEmail = $("#email3").val();
+	console.log(newName);
+	console.log(newPass);
 	if (newPass !== ''){
-	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '10', data: $('#formProf').serialize(), oldemail: emailLog})
+	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '10',oldemail:emailLog,nombre:newName,apellido:newLastName,email:newEmail,password:newPass,data: $('#formProf').serialize()})
 			.done(function(data) {
-				var convertidoAJson = JSON.parse(data);
-				var resultado = convertidoAJson['resultado'];
-				if(resultado === '1'){
-					emailLog = $("#email3").val();
-					$("#address3").val('');
-					$("#tur3").val('');
-					$("#email3").val('');
-					$("#pass3").val('');
+				console.log(data);
+				// var convertidoAJson = JSON.parse(data);
+				// var resultado = convertidoAJson['resultado'];
+				// if(resultado === '1'){
+				 	emailLog = $("#email3").val();
+				 	$("#address3").val('');
+				 	$("#tur3").val('');
+				 	$("#email3").val('');
+				 	$("#pass3").val('');
 					$.mobile.changePage('#well','slide');
 					$("#welHead").text("Thanks for update");
 					//console.log('update'+emailLog);
-				}else{
-					alert('Something was wrong!');
-				}
+				// }else{
+				// 	alert('Something was wrong!');
+				// }
 				//console.log('DONE');
 			});
 		}else{
@@ -159,6 +207,7 @@ function updatePaciente(){
 }
 
 function addDoctor(){
+	//spinnerplugin.show();
 	var emailDoctor = $( "#myselect option:selected" ).text();
 	console.log(emailDoctor);
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '19', email: emailLog, emaild: emailDoctor})
@@ -166,9 +215,11 @@ function addDoctor(){
 			//rows = JSON.parse(data);
 			console.log(data);
 		});
+		//spinnerplugin.hide();
 }
 
 function getListDoctores(){
+	//spinnerplugin.show();
 	$('#myselect').remove();
 	var $ul = $('<select id="myselect" data-theme="b" data-native-menu="true" class="wap"></select>');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '5'})
@@ -181,6 +232,7 @@ function getListDoctores(){
 			    $ul.appendTo($("#evts"));
 			//console.log('DONEEEEEEEEEEEEE');
 			});
+			//spinnerplugin.hide();
 }
 
 function getList(item, $list) {
@@ -208,6 +260,7 @@ function getList(item, $list) {
 }
 
 function getListVacunas(){
+	//spinnerplugin.show();
 	//console.log('asdasdasdasdasdasdasdasd');
 	$('#plo').remove();
 	var $ul = $('<table id="plo" border="1"> <tr><td><strong> Age </strong></td><td><strong> Vaccine </strong></td><td><strong> Disease </strong></td><td><strong> Dose </strong> <td><strong> Next date </strong> </td></tr></table>');
@@ -221,6 +274,7 @@ function getListVacunas(){
 			    $ul.appendTo($("#vacAll"));
 			//console.log('DONEEEEEEEEEEEEE');
 			});
+			//spinnerplugin.hide();
 }
 
 function getListVacc(item, $list) {
@@ -252,6 +306,7 @@ function getListVacc(item, $list) {
 }
 
 function getListHistorialDesarrolloPaciente(){
+	//spinnerplugin.show();
 	$('#asdf').remove();
 	var $ul = $('<ul id="asdf" class="asdfstyle"></ul>');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '8', email: emailLog})
@@ -262,11 +317,13 @@ function getListHistorialDesarrolloPaciente(){
 			    	getListHisDev(row, $ul);
 			    });
 			    $ul.appendTo($("#evtsD"));
-			//console.log('DONEEEEEEEEEEEEE');
+			console.log('DONEEEEEEEEEEEEE');
 			});
+			//spinnerplugin.hide();
 }
 
 function getListHistorialCrecimientoPaciente(){
+	//spinnerplugin.show();
     $('#qweaz').remove();
 	var $ul = $('<ul id="qweaz" class="asdfstyle"></ul>');
 	console.log('wqeqweqweqwe');
@@ -280,6 +337,7 @@ function getListHistorialCrecimientoPaciente(){
 			    $ul.appendTo($("#evtsC"));
 			//console.log('DONEEEEEEEEEEEEE');
 			});
+			//spinnerplugin.hide();
 }
 
 function getListHisCre(item, $list) {
@@ -360,6 +418,7 @@ function getListHisDev(item, $list) {
 }
 
 function getDetDesarrolloPaciente(ye, mon, da){
+	//spinnerplugin.show();
 	var fechaSe = ye+'-'+doscaracteres(da)+'-'+doscaracteres(mon);
 	console.log(ye);
 	var $ul = $('<ul ></ul>');
@@ -382,9 +441,11 @@ function getDetDesarrolloPaciente(ye, mon, da){
 				
 			//console.log('DONEEEEEEEEEEEEE');
 			});
+			//spinnerplugin.hide();
 }
 
 function getDetCrecimientoPaciente(ye, mon, da){
+	//spinnerplugin.show();
 	var fechaSe = ye+'-'+doscaracteres(da)+'-'+doscaracteres(mon);
 	console.log(ye);
 	var $ul = $('<ul ></ul>');
@@ -410,6 +471,7 @@ function getDetCrecimientoPaciente(ye, mon, da){
 				
 			//console.log('DONEEEEEEEEEEEEE');
 			});
+			//spinnerplugin.hide();
 }
 
 function showDetHisCre(item, $list) {

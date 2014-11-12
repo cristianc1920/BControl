@@ -41,22 +41,16 @@ var app = {
     // Phonegap is now ready...
     onDeviceReady: function() {
         console.log("device ready, start making you custom calls!");
+        document.getElementById("#cargando").style.visibility="hidden";
 
         // Start adding your code here....
+
+
+        onDeviceReady: function() {
+    // Native loading spinner
+}
 
     }
 };
 
 
-function calculoIMC(){
-    var peso = $("#address8").val();
-    var estatura = $("#tur8").val();
-    if (peso !=='' && estatura !==''){
-        estatura = estatura / 100;
-        var imc = peso / (estatura * estatura);
-        $("#imc").val(imc);
-    }else{
-        $("#imc").val("");
-    }
-
-}
