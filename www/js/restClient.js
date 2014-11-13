@@ -260,25 +260,23 @@ function getList(item, $list) {
 }
 
 function getListVacunas(){
-	//spinnerplugin.show();
 	//console.log('asdasdasdasdasdasdasdasd');
 	$('#plo').remove();
-	var $ul = $('<table id="plo" border="1"> <tr><td><strong> Age </strong></td><td><strong> Vaccine </strong></td><td><strong> Disease </strong></td><td><strong> Dose </strong> <td><strong> Next date </strong> </td></tr></table>');
+	var $ul = $('<table id="plo" border="1"> <tr><td><strong> Age </strong></td><td><strong> Vaccine </strong></td><td><strong> Dose </strong> <td><strong> Next date </strong> </td></tr></table>');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '9', email: emailLog})
 			.done(function(data) {
-				//console.log(data);
+				console.log("Hola");
 				rows = JSON.parse(data);
 				$.each(rows, function(index, row) {
 			    	getListVacc(row, $ul);
+			    	console.log(getListVacc);
 			    });
 			    $ul.appendTo($("#vacAll"));
 			//console.log('DONEEEEEEEEEEEEE');
 			});
-			//spinnerplugin.hide();
 }
-
 function getListVacc(item, $list) {
-
+	console.log("Entro");
     if ($.isArray(item)) {
         $.each(item, function(key, value) {
             getList(value, $list);
@@ -287,13 +285,13 @@ function getListVacc(item, $list) {
     }
 
     if (item) {
-    	//console.log(item);
-        if (item.nombre_vacuna) {
+    	console.log(item);
+        if (item.edad_paciente) {
         	var $li = $('<tr />');
             $li.append($('<td > ' + item.edad_paciente + ' </td>'));
-            $li.append($('<td > ' + item.nombre_vacuna + ' </td>'));
-            $li.append($('<td > ' + item.enfermedad + ' </td>'));
+            $li.append($('<td > ' + item.protege + ' </td>'));
             $li.append($('<td > ' + item.dosis + ' </td>'));
+         // $li.append($('<td > ' + item.enfermedad + ' </td>'));
             $li.append($('<td > ' + item.fecha_proxima_vacuna + ' </td>'));
         }
         if (item.child && item.child.length) {
@@ -304,7 +302,6 @@ function getListVacc(item, $list) {
         $list.append($li)
     }
 }
-
 function getListHistorialDesarrolloPaciente(){
 	//spinnerplugin.show();
 	$('#asdf').remove();
