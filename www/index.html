@@ -223,6 +223,7 @@
                     <h1>Vaccines</h1>
                 </div>
                 <div data-role="content" >
+                    <a data-icon="flat-heart" data-theme="g" href="#AddVaccines" onclick="getListVacunasAll()" data-role="button" >Add vaccines</a>
                     <h2 id="welHead"> All vaccines: </h2>
                     <div id="vacAll">
                         
@@ -235,6 +236,20 @@
                             <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnostics</a></li>
                             <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Profile</a></li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div  id="AddVaccines" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <h1>Vaccines</h1>
+                </div>
+                <div data-role="content" >
+                    <a data-icon="flat-heart" data-theme="d" href="#vaccines" onclick="getListVacunas()" data-role="button" >Show my vaccines</a>
+                    
+                    <h2 id="welHead2"> All vaccines: </h2>
+                    <div id="vacAll2">
+                        
                     </div>
                 </div>
             </div>
@@ -452,6 +467,631 @@
                     <h2>Privacy Policy</h2>
                     <p>Cristian Pion Ahumada</p>
                     <p>Orlando Andrade</p>
+                </div>
+            </div>
+
+
+            <div  id="Qdesarrollo2-4" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Responde al examinador?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Agarra objetos?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Emite Sonidos?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Sostiene la cabeza?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div  id="Qdesarrollo4-6" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Intenta alcanzar un juguete?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Lleva objetos a la boca?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Localiza un sonido?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Gira?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div  id="Qdesarrollo6-9" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Juega a taparse y descubrirse?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Transfiere objetos de una mano a otra?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Duplica silabas?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Se sienta sin apoyo?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div  id="Qdesarrollo9-12" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Imita gestos?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Pinza superior?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Jerga jeringoza?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Camina con apoyo?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div  id="Qdesarrollo12-15" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Ejecuta gestos a pedido?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Coloca cubos en un recipiente?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Dice una palabra?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Camina sin apoyo?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div  id="Qdesarrollo15-18" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Identifica 2 objetos?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Garabatea espontaneamente?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Dice tres palabras?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Camina para atras?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div  id="Qdesarrollo18-24" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Se quita la ropa?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Construye una torre de 3 cubos?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Señala 2 figuras?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Patea una pelota?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo2-2-6" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Se viste con supervision?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Construye torre de 6 cubos?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Forma frases con 2 palabras?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Salta con ambos pies?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo2-6-3" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Dice el nombre de un amigo?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Imita una linea vertical?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Reconoce 2 acciones?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Tira la pelota?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo3-3-6" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Se pone un saco?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Mueve el pulgar con una mano cerrada?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Comprende 2 adjetivos?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Se para en cada pie por un segundo?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo3-6-4" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Aparea colores?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Copia un circulo?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Habla inteligible?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Salta en un solo pie?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo4-4-6" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Se viste sin ayuda?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Copia una cruz?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Comprende 4 preposiciones?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Se para en cada pie por 3 segundos?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo4-6-5" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Se cepilla los dientes sin ayuda?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Señala la linea mas larga?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Define 5 palabras?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Se para en un pie por 5 segundos?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo5-5-6" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Juega a "¿Hacer de cuenta que?" (Juego imaginario)?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Dibuja una persona con 6 partes?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Hace analogias?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Marcha punta-talon?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div  id="Qdesarrollo5-6-6" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <h1>Developing diagnostic</h1>
+                </div>
+                <div data-role="content" >
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-a">¿Acepta y sigue las reglas de juegos de mesa?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Copia un cuadrado?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-a">¿Define 7 palabras?</label>
+                        <select name="select-choice" id="select-choice-a" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                        <label for="select-choice-b">¿Se equilibra en cada pie por 7 segundos?</label>
+                        <select name="select-choice" id="select-choice-b" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Si</option>
+                            <option value="val2">No</option>
+                        </select>
+                    </div>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisCrecimiento"  data-role="button" >Next</a>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a id="map-button" href="#Vaccines" data-icon="flat-location" onclick="getListVacunas()">Vaccines</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

@@ -302,6 +302,72 @@ function getListVacc(item, $list) {
         $list.append($li)
     }
 }
+
+
+function getListVacunasAll(){
+	console.log('allllllllllllll');
+	$('#plo2').remove();
+	var $ul = $('<table id="plo2" border="1"> <tr><td><strong> Age </strong></td><td><strong> Vaccine </strong></td><td><strong> Dose </strong> <td><strong> Action </strong> </td></tr></table>');
+	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '9', email: 'admin'})
+			.done(function(data) {
+				console.log("Hola");
+				rows = JSON.parse(data);
+				$.each(rows, function(index, row) {
+			    	getListVaccAll(row, $ul);
+			    	console.log(getListVacc);
+			    });
+			    $ul.appendTo($("#vacAll2"));
+			//console.log('DONEEEEEEEEEEEEE');
+			});
+}
+
+function getListVaccAll(item, $list) {
+	console.log("Entro");
+    if ($.isArray(item)) {
+        $.each(item, function(key, value) {
+            getList(value, $list);
+        });
+        return;
+    }
+
+    if (item) {
+    	console.log(item);
+        if (item.edad_paciente) {
+        	var $li = $('<tr />');
+            $li.append($('<td > ' + item.edad_paciente + ' </td>'));
+            $li.append($('<td > ' + item.protege + ' </td>'));
+            $li.append($('<td > ' + item.dosis + ' </td>'));
+         // $li.append($('<td > ' + item.enfermedad + ' </td>'));
+         // $li.append($('<td > ' + item.fecha_proxima_vacuna + ' </td>'));
+         	$li.append($('<td > <a onclick="addVAccToPaciente(' + item.codigo +')" class="btnAdd" >Add</a> </td>'));
+        }
+        if (item.child && item.child.length) {
+            var $sublist = $("<tr/>");
+            getList(item.child, $sublist)
+            $li.append($sublist);
+        }
+        $list.append($li)
+    }
+}
+
+function addVAccToPaciente(cod){
+	console.log('Codigo de la vacuna === ' + cod);
+		$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '20', codigo_vh: cod, email: emailLog})
+			.done(function(data) {
+				console.log(data);
+				var convertidoAJson = JSON.parse(data);
+				var resultado = convertidoAJson['resultado'];
+				if(resultado === '1'){
+					alert('Done!');
+				}else{
+					alert('Something was wrong!');
+				}
+				
+			});
+
+}
+
+
 function getListHistorialDesarrolloPaciente(){
 	//spinnerplugin.show();
 	$('#asdf').remove();
