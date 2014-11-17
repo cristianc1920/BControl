@@ -76,7 +76,813 @@ function signUp(){
 		//spinnerplugin.hide();
 }
 
+var edadPaciente;
+var perCef = 0;
+
+function makeDesarrollo(){
+	edadPaciente = $("#age9").val();
+	perCef = $("#per9").val();
+
+	console.log('Edad del man === ' + edadPaciente);
+
+	if (edadPaciente === ''){
+		alert('Age required');
+	}else{
+		if (edadPaciente < 2){
+			alert('So young');
+		} else {
+			if (edadPaciente >= 2 && edadPaciente <4){
+				$.mobile.changePage('#Qdesarrollo2-4','slide');
+			}else{
+				if (edadPaciente >= 4 && edadPaciente <6){
+					$.mobile.changePage('#Qdesarrollo4-6','slide');
+				}else{
+					if (edadPaciente >= 6 && edadPaciente <9){
+						$.mobile.changePage('#Qdesarrollo6-9','slide');
+					}else{
+						if (edadPaciente >= 9 && edadPaciente <12){
+							$.mobile.changePage('#Qdesarrollo9-12','slide');
+						}else{
+							if (edadPaciente >= 12 && edadPaciente <15){
+								$.mobile.changePage('#Qdesarrollo12-15','slide');
+							}else{
+								if (edadPaciente >= 15 && edadPaciente <18){
+									$.mobile.changePage('#Qdesarrollo15-18','slide');
+								}else{
+									if (edadPaciente >= 18 && edadPaciente <24){
+										$.mobile.changePage('#Qdesarrollo18-24','slide');
+									}else{
+										if (edadPaciente >= 24 && edadPaciente < 30){
+											$.mobile.changePage('#Qdesarrollo2-2-6','slide');
+										}else{
+											if (edadPaciente >= 30 && edadPaciente < 36){
+												$.mobile.changePage('#Qdesarrollo2-6-3','slide');
+											}else{
+												if (edadPaciente >= 36 && edadPaciente < 42){
+													$.mobile.changePage('#Qdesarrollo3-3-6','slide');
+												}else{
+													if (edadPaciente >= 42 && edadPaciente < 48){
+														$.mobile.changePage('#Qdesarrollo3-6-4','slide');
+													}else{
+														if (edadPaciente >= 48 && edadPaciente < 54){
+															$.mobile.changePage('#Qdesarrollo4-4-6','slide');
+														}else{
+															if (edadPaciente >= 54 && edadPaciente < 60){
+																$.mobile.changePage('#Qdesarrollo4-6-5','slide');
+															}else{
+																if (edadPaciente >= 60 && edadPaciente < 66){
+																	$.mobile.changePage('#Qdesarrollo5-5-6','slide');
+																}else{
+																	if (edadPaciente >= 66 && edadPaciente < 72){
+																		$.mobile.changePage('#Qdesarrollo5-6-6','slide');
+																	}else{
+																		
+																	}
+																}	
+															}	
+														}	
+													}	
+												}	
+											}	
+										}
+									}	
+								}	
+							}
+						}	
+					}	
+				}
+			}
+		}
+	}
+}
+
+function makeDes2To4(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-a").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-b").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-c").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+				if (countNo >= 1){
+					addDesarrollo('Todo malo');
+				}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+
+}
+
+function desempateDesFeno(){
+	if ($("#select-choice-add").val()==='val1'){
+		addDesarrollo('Posible retraso desarrollo');
+	}else{
+		//mirar tabla
+		addDesarrollo('con per entre edad');
+	}
+}
+
+function desempateDes(){
+	if ($("#select-choice-add").val()==='val1'){
+		addDesarrollo('Todo bien con riesgo');
+	}else{
+		addDesarrollo('Todo bien');
+	}
+}
+
+function makeDes4To6(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-d").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-e").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-f").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-g").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo2-4','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes6To9(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-h").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-i").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-j").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-k").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo4-6','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes9To12(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-l").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-m").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-n").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-o").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo6-9','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes12To15(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-p").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-q").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-r").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-s").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo9-12','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes15To18(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-t").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-u").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-v").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-w").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo12-15','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes18To24(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-x").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-y").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-z").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-aa").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo15-18','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes24To30(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-bb").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-cc").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-dd").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-ee").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo18-24','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes30To36(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-ff").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-gg").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-hh").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-ii").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo2-2-6','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes36To42(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-jj").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-kk").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-ll").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-mm").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo2-6-3','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes42To48(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-nn").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-oo").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-pp").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-qq").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo3-3-6','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes48To54(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-rr").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-ss").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-tt").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-vv").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo3-6-4','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes54To60(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-ww").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-xx").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-yy").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-zz").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo4-4-6','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes60To66(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-aaa").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-bbb").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-ccc").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-ddd").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo4-6-5','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+function makeDes66To72(){
+	//console.log();
+	var countNo = 0;
+	var countSi = 0;
+	if ($("#select-choice-eee").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-fff").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-ggg").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+	if ($("#select-choice-hhh").val()==='val1'){
+		countSi = countSi + 1;
+	}else{
+		countNo = countNo + 1;
+	}
+
+	console.log('Si == ' + countSi);
+	console.log('No == ' + countNo);
+
+	if (isBack === 0){
+		if (countSi === 4){
+			$.mobile.changePage('#desAdd','slide');
+		}else {
+			if (countNo >= 1){
+				isBack = 1;
+				$.mobile.changePage('#Qdesarrollo5-5-6','slide');
+			}
+		}
+	}else{
+		isBack = 0;
+		if (countNo >= 1){
+			addDesarrollo('Desarrollo retrasado');
+		}else{
+			$.mobile.changePage('#desFeno','slide');
+		}
+	}
+}
+
+var isBack = 0;
+
 function addCrecimiento(){
+
 	//spinnerplugin.show();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '17', data: $('#formNewCrec').serialize(), email: emailLog})
 			.done(function(data) {
@@ -104,9 +910,9 @@ function addCrecimiento(){
 			//spinnerplugin.hide();
 }
 
-function addDesarrollo(){
+function addDesarrollo(diag){
 	//spinnerplugin.show();
-	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '18', data: $('#formNewDes').serialize(), email: emailLog})
+	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '18', data: $('#formNewDes').serialize(), email: emailLog, diagnostico: diag})
 			.done(function(data) {
 				console.log(data);
 				var convertidoAJson = JSON.parse(data);
