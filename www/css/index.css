@@ -221,12 +221,20 @@ li {list-style:none;
     top:1px;
 }
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 1000px){
             .ui-page{
                 width: 600px !important;
                 margin: 0 auto !important;
                 position: relative !important;
-                border-right: 5px #666 outset !important;
-                border-left: 5px #666 outset !important;
+                
+            }
+            .ui-header-fixed{
+                position:absolute !important;
+            }
+            .ui-footer-fixed{
+                position:absolute !important;
+            }
+            .ui-grid-b > :nth-child(n){
+                width:33.1% !important;
             }
         }
