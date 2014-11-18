@@ -209,6 +209,18 @@ function desempateDesFeno(){
 		addDesarrollo('Posible retraso desarrollo');
 	}else{
 		//mirar tabla
+		//si esta por arriba de la linea de arriba y por abajo de la linea de abajo then lo anterior
+		// else (Riesgo de problema en el desarrollo)
+		//pedir genero, 
+		var ageDes = $("#age9").val();
+		var perDes = $("#per9").val();
+		var sexDes = $("#select-choice-sexoD").val();
+		if (sexDes === 'val1'){
+			//Masculino
+
+		}else{
+			//Femenino
+		}
 		addDesarrollo('con per entre edad');
 	}
 }

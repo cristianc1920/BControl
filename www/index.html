@@ -8,13 +8,13 @@
         <link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 
-        <title>App Name</title>
+        <title>BControl</title>
     </head>
     <body >
         <div id="app" >
             <div id="home-page" data-role="page" class="wp">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <h1>Wellcome</h1>
+                    <h1>Welcome</h1>
                 </div>
                 <div data-role="content" >
                     <div id="logoContainer" class="centerText">
@@ -288,6 +288,11 @@
                         <input type="text" name="edad" id="age9" data-mini="true" placeholder="months"/>
                         <label for="address">Head circumference (cm)</label>
                         <input type="text" name="perimetro_cefalico" id="per9" data-mini="true" placeholder="cm"/>
+                        <label for="select-choice-sexoD">Seleccione sexo: </label>
+                        <select name="select-choice" id="select-choice-sexoD" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Masculino</option>
+                            <option value="val2">Femenino</option>
+                        </select>
                         <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="makeDesarrollo()">Next</a>
                     </form>
                 </div>
@@ -310,6 +315,11 @@
                 </div>
                 <div data-role="content" >
                     <form id="formNewCrec">
+                        <label for="select-choice-sexoC">Seleccione sexo: </label>
+                        <select name="select-choice" id="select-choice-sexoC" data-native-menu="false" data-mini="true" data-theme="b">
+                            <option value="val1">Masculino</option>
+                            <option value="val2">Femenino</option>
+                        </select>
                         <label for="address8">Weight (kg)</label>
                         <input type="text" name="peso" id="address8" data-mini="true" placeholder="kg" onkeyup="calculoIMC()"/>
                         <label for="tur8">Size (cm)</label>
