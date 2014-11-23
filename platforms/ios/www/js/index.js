@@ -41,7 +41,8 @@ var app = {
     // Phonegap is now ready...
     onDeviceReady: function() {
         console.log("device ready, start making you custom calls!");
-        document.getElementById("#cargando").style.visibility="hidden";
+        
+
 
         // Start adding your code here....
 

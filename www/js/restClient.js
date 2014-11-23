@@ -4,10 +4,23 @@
 localStorage.emailLog = '';
 localStorage.logPc = 0;
 
+function hideElements(){
+	$("#sp1").hide();
+	$("#sp2").hide();
+	$("#sp3").hide();
+	$("#sp4").hide();
+	$("#sp5").hide();
+	$("#sp6").hide();
+	$("#sp7").hide();
+	$("#sp8").hide();
+}
+
 function login(){
 	console.log('begin');
 	
 	console.log('start');
+
+	$("#sp1").show();
 	
 	//spinnerplugin.hide();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '1', data: $('#formLogIn').serialize()})
@@ -32,6 +45,7 @@ function login(){
 					
 					alert('Email and / or password Invalid');
 				}
+				$("#sp1").hide();
 				//console.log('DONE');
 				console.log('sale');
 			});
@@ -43,6 +57,7 @@ function login(){
 function signUp(){
 	var newPass = $("#pass2").val();
 	console.log(newPass);
+	$("#sp3").show();
 	if (newPass !== ''){
 		//spinnerplugin.show();
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '2', data: $('#formSignUp').serialize()})
@@ -68,6 +83,7 @@ function signUp(){
 					//spinnerplugin.hide();
 					alert('Something was wrong!');
 				}
+				$("#sp3").hide();
 				//console.log('DONE');
 			});
 		}else{
@@ -913,7 +929,7 @@ function addCrecimiento(){
 					$("#imc").val("");
 					//spinnerplugin.hide();
 					$.mobile.changePage('#well','slide');
-					$("#welHead").text("Thanks for choosing us");
+					$("#welHead").text("Gracias por escogernos");
 				}else{
 					//spinnerplugin.hide();
 					alert('Something was wrong!');
@@ -939,7 +955,7 @@ function addDesarrollo(diag){
 					getListHistorialCrecimientoPaciente();
 					//spinnerplugin.hide();
 					$.mobile.changePage('#well','slide');
-					$("#welHead").text("Thanks for choosing us");
+					$("#welHead").text("Gracias por escogernos! Tu diagnostico es: " + diag);
 				}else{
 					//spinnerplugin.hide();
 					alert('Something was wrong!');
@@ -998,6 +1014,7 @@ function updatePaciente(){
 	var newName = $("#address3").val();
 	var newLastName = $("#tur3").val();
 	var newEmail = $("#email3").val();
+	$("#sp5").show();
 	console.log(newName);
 	console.log(newPass);
 	if (newPass !== ''){
@@ -1013,7 +1030,8 @@ function updatePaciente(){
 				 	$("#email3").val('');
 				 	$("#pass3").val('');
 					$.mobile.changePage('#well','slide');
-					$("#welHead").text("Thanks for update");
+					$("#sp5").hide();
+					$("#welHead").text("Gracias por actualizar sus datos");
 					//console.log('update'+emailLog);
 				// }else{
 				// 	alert('Something was wrong!');
@@ -1028,11 +1046,14 @@ function updatePaciente(){
 function addDoctor(){
 	//spinnerplugin.show();
 	var emailDoctor = $( "#myselect option:selected" ).text();
+	$("#sp6").show();
 	console.log(emailDoctor);
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '19', email: emailLog, emaild: emailDoctor})
 		.done(function(data) {
 			//rows = JSON.parse(data);
 			console.log(data);
+			$.mobile.changePage('#diagnostics','slide');
+			$("#sp6").hide();
 		});
 		//spinnerplugin.hide();
 }
@@ -1040,6 +1061,7 @@ function addDoctor(){
 function getListDoctores(){
 	//spinnerplugin.show();
 	$('#myselect').remove();
+	$("#sp6").show();
 	var $ul = $('<select id="myselect" data-theme="b" data-native-menu="true" class="wap"></select>');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '5'})
 			.done(function(data) {
@@ -1049,6 +1071,7 @@ function getListDoctores(){
 			    	getList(row, $ul);
 			    });
 			    $ul.appendTo($("#evts"));
+			    $("#sp6").hide();
 			//console.log('DONEEEEEEEEEEEEE');
 			});
 			//spinnerplugin.hide();
@@ -1080,6 +1103,7 @@ function getList(item, $list) {
 
 function getListVacunas(){
 	//console.log('asdasdasdasdasdasdasdasd');
+	$("#sp2").show();
 	$('#plo').remove();
 	var $ul = $('<table id="plo" border="1"> <tr><td><strong> Age </strong></td><td><strong> Vaccine </strong></td><td><strong> Dose </strong> <td><strong> Next date </strong> </td></tr></table>');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '9', email: emailLog})
@@ -1091,6 +1115,7 @@ function getListVacunas(){
 			    	console.log(getListVacc);
 			    });
 			    $ul.appendTo($("#vacAll"));
+			    $("#sp2").hide();
 			//console.log('DONEEEEEEEEEEEEE');
 			});
 }
@@ -1126,6 +1151,7 @@ function getListVacc(item, $list) {
 function getListVacunasAll(){
 	console.log('allllllllllllll');
 	$('#plo2').remove();
+	$("#sp4").show();
 	var $ul = $('<table id="plo2" border="1"> <tr><td><strong> Age </strong></td><td><strong> Vaccine </strong></td><td><strong> Dose </strong> <td><strong> Action </strong> </td></tr></table>');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '9', email: 'admin'})
 			.done(function(data) {
@@ -1137,6 +1163,7 @@ function getListVacunasAll(){
 			    });
 			    $ul.appendTo($("#vacAll2"));
 			//console.log('DONEEEEEEEEEEEEE');
+				$("#sp4").hide();
 			});
 }
 
@@ -1189,6 +1216,7 @@ function addVAccToPaciente(cod){
 
 function getListHistorialDesarrolloPaciente(){
 	//spinnerplugin.show();
+	$("#sp8").show();
 	$('#asdf').remove();
 	var $ul = $('<ul id="asdf" class="asdfstyle"></ul>');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '8', email: emailLog})
@@ -1199,6 +1227,7 @@ function getListHistorialDesarrolloPaciente(){
 			    	getListHisDev(row, $ul);
 			    });
 			    $ul.appendTo($("#evtsD"));
+			    $("#sp8").hide();
 			console.log('DONEEEEEEEEEEEEE');
 			});
 			//spinnerplugin.hide();
@@ -1207,6 +1236,7 @@ function getListHistorialDesarrolloPaciente(){
 function getListHistorialCrecimientoPaciente(){
 	//spinnerplugin.show();
     $('#qweaz').remove();
+    $("#sp7").show();
 	var $ul = $('<ul id="qweaz" class="asdfstyle"></ul>');
 	console.log('wqeqweqweqwe');
 	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '7', email: emailLog})
@@ -1217,6 +1247,7 @@ function getListHistorialCrecimientoPaciente(){
 			    	getListHisCre(row, $ul);
 			    });
 			    $ul.appendTo($("#evtsC"));
+			    $("#sp7").hide();
 			//console.log('DONEEEEEEEEEEEEE');
 			});
 			//spinnerplugin.hide();

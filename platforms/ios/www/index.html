@@ -8,13 +8,13 @@
         <link rel="stylesheet"  href="libs/jQM-flat/jquery.mobile.flatui.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 
-        <title>BControl</title>
+        <title>BControl Paciente</title>
     </head>
     <body >
         <div id="app" >
             <div id="home-page" data-role="page" class="wp">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <h1>Welcome</h1>
+                    <h1>Bienvenido</h1>
                 </div>
                 <div data-role="content" >
                     <div id="logoContainer" class="centerText">
@@ -24,25 +24,35 @@
                             <img src="img/imm.jpg"  class="imm"/>
                     </div>
                     <div id="menu">
-                        <a data-icon="flat-heart" data-theme="d" href="#LogInPage" data-role="button">Next</a>
-                        <a data-icon="ms-question" data-theme="g" href="#about-page"  data-role="button" >About</a>
+                        <a data-icon="flat-heart" data-theme="d" href="#LogInPage" onclick="hideElements()" data-role="button">Continuar</a>
+                        <a data-icon="ms-question" data-theme="g" href="#about-page"  data-role="button" >Acerca De</a>
                     </div>
                 </div>
             </div><!-- /page  -->
 
             <div  id="LogInPage" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <h1>Sign in</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <h1>Ingresar</h1>
                 </div>
                 <form id="formLogIn">
                 <div data-role="content" id="formLogin">
                     <label for="address">Email</label>
-                    <input type="text" name="email" id="address1" data-mini="true" placeholder="Your email"/>
-                    <label for="pass">Password</label>
+                    <input type="text" name="email" id="address1" data-mini="true" placeholder="Tu email"/>
+                    <label for="pass">Contraseña</label>
                     <input type="password" name="password" reque id="pass1" data-mini="true" placeholder="********"/>
-                    <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="login()" >Sign in</a>
-                    <a data-icon="flat-plus" data-theme="d" href="#SignUpPage"  data-role="button" >Sign up</a>
+                    <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="login()" >Ingresar</a>
+                    <a data-icon="flat-plus" data-theme="d" href="#SignUpPage"  data-role="button" >Registrarce</a>
+                </div>
+                <div class="spinner circles" id="sp1">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
             </form >
             </div>
@@ -51,42 +61,62 @@
 
             <div  id="SignUpPage" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <h1>Sign in</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <h1>Registrarce</h1>
                 </div>
                 <form id="formSignUp">
                 <div data-role="content" >
-                    <label for="address">Name</label>
+                    <label for="address">Nombre</label>
                     <input type="text" name="nombre" id="address2" data-mini="true" placeholder="Patient name"/>
                     <label for="tur">Apellido</label>
                     <input type="text" name="apellido" id="tur2" data-mini="true" placeholder="Last name"/>
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email2" data-mini="true" placeholder="email@dominio.com"/>
-                    <label for="pass">Password</label>
+                    <label for="pass">Contraseña</label>
                     <input type="password" name="password" id="pass2" data-mini="true" placeholder="********"/>
-                    <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="signUp()" >Save</a>
+                    <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="signUp()" >Guardar</a>
+                </div>
+                <div class="spinner circles" id="sp3">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
             </form >
             </div>
 
             <div  id="HisCrecimiento" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Diagnosis of growth</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnostico de crecimiento</h1>
                 </div>
                 <div data-role="content" >
-                    <a data-icon="flat-heart" data-theme="g" href="#crecimiento"  data-role="button" >New history</a>
-                    <h2>History</h2>
+                    <a data-icon="flat-heart" data-theme="g" href="#crecimiento"  data-role="button" >Nuevo historial</a>
+                    <h2>Historial</h2>
                     <div id="evtsC">
                     </div>
+                </div>
+                <div class="spinner circles" id="sp7">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu">Diagnostivos</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -94,22 +124,32 @@
 
             <div  id="HisDesarrollo" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnostico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
-                    <a data-icon="flat-heart" data-theme="g" href="#desarrollo"  data-role="button" >New history</a>
-                    <h2>History</h2>
+                    <a data-icon="flat-heart" data-theme="g" href="#desarrollo"  data-role="button" >Nuevo historial</a>
+                    <h2>Historial</h2>
                     <div id="evtsD">
                     </div>
+                </div>
+                <div class="spinner circles" id="sp8">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,12 +157,12 @@
 
             <div  id="well" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
                     <h1>BControl</h1>
                 </div>
                 <div data-role="content" >
-                    <h2 id="welHead">Thanks for sign up</h2>
+                    <h2 id="welHead">Gracias por registrarce</h2>
                 </div>
                 <div class="centerText">
                     <img src="img/logo.png" id="logo"; />
@@ -130,9 +170,9 @@
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnosticos</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -140,30 +180,30 @@
 
             <div  id="detalleCrecimiento" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
                     <h1>Detalle</h1>
                 </div>
                 <div data-role="content" >
-                    <label for="address">Dianostic: </label>
-                    <input type="text" name="address" id="a" data-mini="true" readonly/>
-                    <label for="address">Age: </label>
+                    <label for="address">Diagnostico: </label>
+                    <textarea name="comentarios" rows="10" id="a" cols="40" readonly>Escribe aquí tus comentarios</textarea>
+                    <label for="address">Edad: </label>
                     <input type="text" name="address" id="b" data-mini="true" readonly/>
                     <label for="address">IMC: </label>
                     <input type="text" name="address" id="c" data-mini="true" readonly/>
-                    <label for="address">Head circumference: </label>
+                    <label for="address">Perimetro cefalico: </label>
                     <input type="text" name="address" id="d" data-mini="true" readonly/>
-                    <label for="address">weight: </label>
+                    <label for="address">Peso: </label>
                     <input type="text" name="address" id="e" data-mini="true" readonly/>
-                    <label for="address">size: </label>
+                    <label for="address">Estatura: </label>
                     <input type="text" name="address" id="f" data-mini="true" readonly/>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -171,24 +211,24 @@
 
             <div  id="detalleDesarrollo" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
                     <h1>Detalle</h1>
                 </div>
                 <div data-role="content" >
-                    <label for="address">Dianostic: </label>
-                    <input type="text" name="address" id="aa" data-mini="true" readonly/>
-                    <label for="address">Age: </label>
+                    <label for="address">Diagnostico: </label>
+                    <textarea name="comentarios" rows="10" id="aa" cols="40" readonly>Escribe aquí tus comentarios</textarea>
+                    <label for="address">Edad: </label>
                     <input type="text" name="address" id="bb" data-mini="true" readonly/>
-                    <label for="address">perimetro_cefalico: </label>
+                    <label for="address">Perimetro cefalico: </label>
                     <input type="text" name="address" id="cc" data-mini="true" readonly/>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -196,21 +236,21 @@
 
             <div  id="diagnostics" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Diagnostics</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnostico</h1>
                 </div>
                 <div data-role="content" >
-                    <h2 id="welHead">Choose one type: </h2>
-                    <a data-icon="flat-heart" data-theme="d" href="#HisCrecimiento"  data-role="button" onclick="getListHistorialCrecimientoPaciente()">Diagnosis of growth</a>
-                    <a data-icon="flat-heart" data-theme="g" href="#HisDesarrollo"  data-role="button" onclick="getListHistorialDesarrolloPaciente()">Developing diagnostic</a>
+                    <h2 id="welHead">Escoge uno: </h2>
+                    <a data-icon="flat-heart" data-theme="d" href="#HisCrecimiento"  data-role="button" onclick="getListHistorialCrecimientoPaciente()">Diagnostico de crecimiento</a>
+                    <a data-icon="flat-heart" data-theme="g" href="#HisDesarrollo"  data-role="button" onclick="getListHistorialDesarrolloPaciente()">Diagnostico de desarrollo</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu">Diagnosticos</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -218,23 +258,33 @@
 
             <div  id="vaccines" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>vaccines</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Vacunas</h1>
                 </div>
                 <div data-role="content" >
-                    <a data-icon="flat-heart" data-theme="g" href="#Addvaccines" onclick="getListVacunasAll()" data-role="button" >Add vaccines</a>
-                    <h2 id="welHead"> All vaccines: </h2>
+                    <a data-icon="flat-heart" data-theme="g" href="#Addvaccines" onclick="getListVacunasAll()" data-role="button" >Agregar vacunas</a>
+                    <h2 id="welHead"> Todas las vacunas: </h2>
                     <div id="vacAll">
                         
+                    </div>
+                    <div class="spinner circles" id="sp2">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-theme="b" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-theme="b" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()" >Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -242,35 +292,55 @@
 
             <div  id="Addvaccines" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <h1>vaccines</h1>
+                    <h1>Vacunas</h1>
                 </div>
                 <div data-role="content" >
-                    <a data-icon="flat-heart" data-theme="d" href="#vaccines" onclick="getListVacunas()" data-role="button" >Show my vaccines</a>
+                    <a data-icon="flat-heart" data-theme="d" href="#vaccines" onclick="getListVacunas()" data-role="button" >Mis vacunas</a>
                     
-                    <h2 id="welHead2"> All vaccines: </h2>
+                    <h2 id="welHead2"> Todas las vacunas: </h2>
                     <div id="vacAll2">
                         
+                    </div>
+                    <div class="spinner circles" id="sp4">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </div>
             </div>
 
             <div  id="shDoctor" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back" data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Search Doctor</h1>
+                    <a data-rel="back" data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Buscar doctor</h1>
                 </div>
                 <div data-role="content" >
-                    <label for="address">Doctor name</label>
+                    <label for="address">Nombre del doctor</label>
                     <div id="evts"></div>
-                    <a data-icon="flat-heart" data-theme="g" href="#diagnostics"  data-role="button" onclick="addDoctor()">Save</a>
+                    <a data-icon="flat-heart" data-theme="g"  data-role="button" onclick="addDoctor()">Guardar</a>
                 </div>
+                <div class="spinner circles" id="sp6">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-theme="b" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnosticos</a></li>
+                            <li><a id="search-button" href="#prof" data-theme="b" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -278,30 +348,30 @@
 
             <div  id="desarrollo" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back" data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back" data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnostivo de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <form id="formNewDes">
-                        <label for="address">Age (months)</label>
+                        <label for="address">Edad (meses)</label>
                         <input type="text" name="edad" id="age9" data-mini="true" placeholder="months"/>
-                        <label for="address">Head circumference (cm)</label>
+                        <label for="address">Perimetro cefalico (cm)</label>
                         <input type="text" name="perimetro_cefalico" id="per9" data-mini="true" placeholder="cm"/>
                         <label for="select-choice-sexoD">Seleccione sexo: </label>
                         <select name="select-choice" id="select-choice-sexoD" data-native-menu="false" data-mini="true" data-theme="b">
                             <option value="val1">Masculino</option>
                             <option value="val2">Femenino</option>
                         </select>
-                        <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="makeDesarrollo()">Next</a>
+                        <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="makeDesarrollo()">Siguiente</a>
                     </form>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnosticos</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -309,9 +379,9 @@
 
             <div  id="crecimiento" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Diagnosis of growth</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnostico de crecimiento</h1>
                 </div>
                 <div data-role="content" >
                     <form id="formNewCrec">
@@ -320,25 +390,25 @@
                             <option value="val1">Masculino</option>
                             <option value="val2">Femenino</option>
                         </select>
-                        <label for="address8">Weight (kg)</label>
+                        <label for="address8">Peso (kg)</label>
                         <input type="text" name="peso" id="address8" data-mini="true" placeholder="kg" onkeyup="calculoIMC()"/>
-                        <label for="tur8">Size (cm)</label>
+                        <label for="tur8">Estatura (cm)</label>
                         <input type="text" name="talla" id="tur8" data-mini="true" placeholder="cm" onkeyup="calculoIMC()"/>
-                        <label for="email8">Age (months)</label>
+                        <label for="email8">Edad (meses)</label>
                         <input type="text" name="edad" id="email8" data-mini="true" placeholder="months"/>
-                        <label for="pass8">Head circumference (cm)</label>
+                        <label for="pass8">perimetro cefalico (cm)</label>
                         <input type="text" name="perimetro_cefalico" id="pass8" data-mini="true" placeholder="cm"/>
                         <label for="imc">IMC (kg/m<sup>2</sup>)</label>
                         <input type="text" name="imc" id="imc" data-mini="true" placeholder="procesing..." readonly/>
-                        <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="addCrecimiento()">Save</a>
+                        <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="addCrecimiento()">Guardar</a>
                     </from>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -346,33 +416,43 @@
 
             <div  id="prof" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Profile</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Perfil</h1>
                 </div>
                 <form id="bnbn">
                 <div data-role="content" >
                     
-                        <label for="address3">Name</label>
+                        <label for="address3">Nombre</label>
                         <input type="text" name="nombre" id="address3" data-mini="true" placeholder="Patient name"/>
                         <label for="tur3">Apellido</label>
                         <input type="text" name="apellido" id="tur3" data-mini="true" placeholder="Last name"/>
                         <label for="emai3l">Email</label>
                         <input type="text" name="email" id="email3" data-mini="true" placeholder="email@dominio.com"/>
-                        <label for="pass3">Password</label>
+                        <label for="pass3">Contraseña</label>
                         <input type="password" name="password" id="pass3" data-mini="true" placeholder="********"/>
-                        <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="updatePaciente()" >Save</a>
+                        <a data-icon="flat-heart" data-theme="g" data-role="button" onclick="updatePaciente()" >Guardar</a>
                     
                     
-                    <a data-icon="flat-plus" data-theme="b" href="#shDoctor"  data-role="button" onclick="getListDoctores()" >Edit Doctor</a>
+                    <a data-icon="flat-plus" data-theme="b" href="#shDoctor"  data-role="button" onclick="getListDoctores()" >Editar doctor</a>
+                    <div class="spinner circles" id="sp5">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
                 </form>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" data-theme="b">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-icon="flat-menu">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" data-theme="b">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -380,8 +460,8 @@
 
             <div  id="about-page" data-role="page">
                 <div data-role="header" data-id="header1" data-position="fixed" class="ui-header">
-                    <a data-rel="back" data-rel="back" data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
+                    <a data-rel="back" data-rel="back" data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
                     <h1>Universidad del Norte</h1>
                 </div>
                 <div data-role="content"  class="big-text">
@@ -394,9 +474,9 @@
 
             <div  id="Qdesarrollo2-4" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -421,14 +501,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g"  onclick="makeDes2To4()" data-role="button" >Save</a>
+                    <a data-icon="flat-heart" data-theme="g"  onclick="makeDes2To4()" data-role="button" >Guardar</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -436,9 +516,9 @@
 
             <div  id="desAdd" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -447,17 +527,17 @@
                             <option value="val1">Si</option>
                             <option value="val2">No</option>
                         </select>
-                        <textarea>Un factor de riesgo es cualquier rasgo, característica o exposición de un individuo que aumente su probabilidad de sufrir una enfermedad o lesión. Entre los factores de riesgo más importantes cabe citar la insuficiencia ponderal, las prácticas sexuales de riesgo, la hipertensión, el consumo de tabaco y alcohol, el agua insalubre, las deficiencias del saneamiento y la falta de higiene. </textarea>
+                        <textarea readonly>Un factor de riesgo es cualquier rasgo, característica o exposición de un individuo que aumente su probabilidad de sufrir una enfermedad o lesión. Entre los factores de riesgo más importantes cabe citar la insuficiencia ponderal, las prácticas sexuales de riesgo, la hipertensión, el consumo de tabaco y alcohol, el agua insalubre, las deficiencias del saneamiento y la falta de higiene. </textarea>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="desempateDes()" data-role="button" >Save</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="desempateDes()" data-role="button" >Guardar</a>
                 </div>
             </div>
 
             <div  id="desFeno" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -466,18 +546,18 @@
                             <option value="val1">Si</option>
                             <option value="val2">No</option>
                         </select>
-                        <textarea >Conocemos como enfermedades geneticas o trastornos geneticos a la  condición patológica causada por una alteración del genoma.Si el gen alterado está presente en los gametos (óvulos y espermatozoides) será hereditaria, (pasará de generación en generación), por el contrario si sólo afecta a las células somáticas, entonces no será heredada.
+                        <textarea readonly>Conocemos como enfermedades geneticas o trastornos geneticos a la  condición patológica causada por una alteración del genoma.Si el gen alterado está presente en los gametos (óvulos y espermatozoides) será hereditaria, (pasará de generación en generación), por el contrario si sólo afecta a las células somáticas, entonces no será heredada.
                         Las enfermedades fenotipicas son un tipo de enfermedad genetica, solo que estas afectan la apariencia fisica del individuo afectado. </textarea>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="desempateDesFeno()" data-role="button" >Save</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="desempateDesFeno()" data-role="button" >Guardar</a>
                 </div>
             </div>
 
              <div  id="Qdesarrollo4-6" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -502,23 +582,23 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes4To6()" data-role="button" >Save</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes4To6()" data-role="button" >Guardar</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
              <div  id="Qdesarrollo6-9" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -543,23 +623,23 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes6To9()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes6To9()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">perfil</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
              <div  id="Qdesarrollo9-12" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -584,23 +664,23 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes9To12()"  data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes9To12()"  data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">perfil</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
              <div  id="Qdesarrollo12-15" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -625,27 +705,27 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes12To15()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes12To15()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnosticos</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">perfil</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
              <div  id="Qdesarrollo15-18" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
-                        <label for="select-choice-t">¿Identifica 2 objetos?</label>
+                        <label for="select-choice-t">¿Identifica dos objetos?</label>
                         <select name="select-choice" id="select-choice-t" data-native-menu="false" data-mini="true" data-theme="b">
                             <option value="val1">Si</option>
                             <option value="val2">No</option>
@@ -666,23 +746,23 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes15To18()"  data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes15To18()"  data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
              <div  id="Qdesarrollo18-24" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -707,14 +787,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes18To24()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes18To24()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -722,9 +802,9 @@
 
              <div  id="Qdesarrollo2-2-6" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -749,14 +829,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes24To30()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes24To30()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnosticos</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -764,9 +844,9 @@
 
              <div  id="Qdesarrollo2-6-3" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -791,14 +871,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes30To36()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes30To36()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -806,9 +886,9 @@
 
              <div  id="Qdesarrollo3-3-6" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -833,14 +913,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes36To42()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes36To42()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -848,9 +928,9 @@
 
              <div  id="Qdesarrollo3-6-4" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -875,14 +955,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes42To48()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes42To48()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -890,9 +970,9 @@
 
              <div  id="Qdesarrollo4-4-6" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -917,14 +997,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes48To54()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes48To54()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -932,9 +1012,9 @@
 
              <div  id="Qdesarrollo4-6-5" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -959,14 +1039,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes54To60()"  data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes54To60()"  data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnosticos</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -974,9 +1054,9 @@
 
              <div  id="Qdesarrollo5-5-6" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -1001,14 +1081,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes60To66()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes60To66()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">perfil</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1016,9 +1096,9 @@
 
              <div  id="Qdesarrollo5-6-6" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Log Out</a>
-                    <h1>Developing diagnostic</h1>
+                    <a data-rel="back"  data-role="button" data-icon="arrow-l" data-inline="true" >Atras</a>
+                    <a href="#home-page"  data-role="button" data-icon="flat-lock" data-inline="true" >Salir</a>
+                    <h1>Diagnistico de desarrollo</h1>
                 </div>
                 <div data-role="content" >
                     <div data-role="fieldcontain">
@@ -1043,14 +1123,14 @@
                             <option value="val2">No</option>
                         </select>
                     </div>
-                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes66To72()" data-role="button" >Next</a>
+                    <a data-icon="flat-heart" data-theme="g" onclick="makeDes66To72()" data-role="button" >Siguiente</a>
                 </div>
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
-                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">vaccines</a></li>
-                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostics</a></li>
-                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">Profile</a></li>
+                            <li><a id="map-button" href="#vaccines" data-icon="flat-location" onclick="getListVacunas()">Vacunas</a></li>
+                            <li><a id="list-button" href="#diagnostics" data-theme="b" data-icon="flat-menu" data-theme="b">Diagnostico</a></li>
+                            <li><a id="search-button" href="#prof" data-icon="flat-man" onclick="getPaciente()">perfil</a></li>
                         </ul>
                     </div>
                 </div>
