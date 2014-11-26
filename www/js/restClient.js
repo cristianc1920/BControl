@@ -15,6 +15,39 @@ function hideElements(){
 	$("#sp8").hide();
 }
 
+var y = 0, yg1, yg2, yg3, yg4, yg5;
+
+function MetodoInterNewton(xNew, x1, y1, x2, y2, x3, y3, x4, y4, x5, y5){
+		//var a[][] = new double [5][2];
+		y = 0;
+		var x,fx1x0,fx2x1,fx3x2,fx4x3,fx2x1x0,fx3x2x1,fx4x3x2,fx3x2x1x0,fx4x3x2x1,fx4x3x2x1x0;
+		x = xNew;
+		a00 = x1;
+		a10 = x2;
+		a20 = x3;
+		a30 = x4;
+		a40 = x5;
+		a01 = y1;
+		a11 = y2;
+		a21 = y3;
+		a31 = y4;
+		a41 = y5;
+		fx1x0=(a11-a01)/(a10-a00);
+		fx2x1=(a21-a11)/(a20-a10);
+		fx3x2=(a31-a21)/(a30-a20);
+		fx4x3=(a41-a31)/(a40-a30);
+		fx2x1x0=(fx2x1-fx1x0)/(a20-a00);
+		fx3x2x1=(fx3x2-fx2x1)/(a30-a10);
+		fx4x3x2=(fx4x3-fx3x2)/(a40-a20);
+		fx3x2x1x0=(fx3x2x1-fx2x1x0)/(a30-a00);
+		fx4x3x2x1=(fx4x3x2-fx3x2x1)/(a30-a00);
+		fx4x3x2x1x0=(fx4x3x2x1-fx3x2x1x0)/(a40-a00);
+		y=a01+fx1x0*(x-a00)+fx2x1x0*(x-a00)*(x-a10)+fx3x2x1x0*(x-a00)*(x-a10)*(x-a20)+fx4x3x2x1x0*(x-a00)*(x-a10)*(x-a20)*(x-a30);
+		//console.log("Y ES IGUAL A  == " + y);
+}
+
+
+
 function login(){
 	console.log('begin');
 	
@@ -909,11 +942,540 @@ function makeDes66To72(){
 }
 
 var isBack = 0;
+var diagCrecimiento;
+var diagnostoicoCrecimiento;
+
+function calcularCrecimiento(){
+	var imcCrec = $("#imc").val();
+
+	diagnostoicoCrecimiento = '';
+
+	if (imcCrec < 18.5 ){
+		diagnostoicoCrecimiento = 'Bajo peso, ';
+		if ($("#select-choice-sexoC").val()==='val1'){
+			calcularCrecimientoMasculino();
+		}else{
+			calcularCrecimientoFemenino();
+		}
+	}else{
+		if (imcCrec >= 18.5 && imcCrec < 25 ){
+			diagnostoicoCrecimiento = 'Normal, ';
+			if ($("#select-choice-sexoC").val()==='val1'){
+				calcularCrecimientoMasculino();
+			}else{
+				calcularCrecimientoFemenino();
+			}
+		}else{
+			if (imcCrec >= 25 && imcCrec < 30){
+				diagnostoicoCrecimiento = 'Sobrepeso; ';
+			}else{
+				if (imcCrec >= 30 && imcCrec < 35){
+					diagnostoicoCrecimiento = 'Obesidad G1; ';
+				}else{
+					if (imcCrec >= 35 && imcCrec < 40){
+						diagnostoicoCrecimiento = 'Obesidad G2; ';
+					}else{
+						if (imcCrec > 40 ){
+							diagnostoicoCrecimiento = 'Obesidad G3; ';
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	
+}
+
+function calcularCrecimientoFemenino(){
+	var edaddd =  $("#email8").val();
+	var pesooo =  $("#address8").val();
+	var estaturaaa =  $("#tur8").val();
+	
+	var y1, y2, y3, y4, y5;
+
+	//PESO - EDAD
+		MetodoInterNewton(edaddd,2,7.7,6,10.7,12,13.1,14,13.9,60,29.9);
+		yg1 = y;
+
+		MetodoInterNewton(edaddd,2,7.7,6,9.3,12,11.5,14,12,60,25);
+		yg2 = y;
+
+		MetodoInterNewton(edaddd,2,5,6,7.3,12,9,14,9.5,60,18.3);
+		yg3 = y;
+
+		MetodoInterNewton(edaddd,2,4,6,5.8,12,7,14,7.5,60,13.8);
+		yg4 = y;
+
+		MetodoInterNewton(edaddd,2,3.5,6,5,12,6.3,14,6.5,60,12);
+		yg5 = y;
+
+		var dif1, dif2, dif3, dif4, dif5;
+
+		console.log('peso == ' + pesooo);
+		console.log('yg1 == ' + yg1);
+		console.log('yg2 == ' + yg2);
+		console.log('yg3 == ' + yg3);
+		console.log('yg4 == ' + yg4);
+		console.log('yg5 == ' + yg5);
+
+		dif1 = pesooo - yg1;
+		dif2 = pesooo - yg2;
+		dif3 = pesooo - yg3;
+		dif4 = pesooo - yg4;
+		dif5 = pesooo - yg5;
+
+		console.log('Dif 1 == ' + dif1);
+		console.log('Dif 2 == ' + dif2);
+		console.log('Dif 3 == ' + dif3);
+		console.log('Dif 4 == ' + dif4);
+		console.log('Dif 5 == ' + dif5);
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso adecuado para la edad; ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo peso para su edad); ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso bajo para la edad o desnutricion global; ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion global severa; ';
+						}
+					}	
+				}
+			}	
+		}
+
+	//ESTATURA - EDAD
+		MetodoInterNewton(edaddd,2,63,6,73,12,82,14,84,60,124);
+		yg1 = y;
+
+		MetodoInterNewton(edaddd,2,61,6,70,12,79,14,82,60,119);
+		yg2 = y;
+
+		MetodoInterNewton(edaddd,2,57,6,66,12,75,14,76,60,109);
+		yg3 = y;
+
+		MetodoInterNewton(edaddd,2,53,6,61,12,69,14,71,60,100);
+		yg4 = y;
+
+		MetodoInterNewton(edaddd,2,51,6,59,12,66,14,68,60,95);
+		yg5 = y;
+
+
+		dif1 = estaturaaa - yg1;
+		dif2 = estaturaaa - yg2;
+		dif3 = estaturaaa - yg3;
+		dif4 = estaturaaa - yg4;
+		dif5 = estaturaaa - yg5;
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' talla adecuada para la edad; ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo talla para la edad); ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' retraso de crecimiento o desnutricion cronica; ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion cronica severa; ';
+						}
+					}	
+				}
+			}	
+		}
+
+	//PESO - ESTATURA (2 - 5 años)
+	if (edaddd >24 && edaddd <= 60){
+		MetodoInterNewton(estaturaaa,65,9.7,80,13.4,90,17,100,10,120,31);
+		yg1 = y;
+
+		MetodoInterNewton(estaturaaa,65,8.9,80,12.1,90,15,100,18,120,28);
+		yg2 = y;
+
+		MetodoInterNewton(estaturaaa,65,7.3,80,10,90,12.5,100,14,120,12.9);
+		yg3 = y;
+
+		MetodoInterNewton(estaturaaa,65,6,80,8.5,90,10.5,100,12.5,120,18.9);
+		yg4 = y;
+
+		MetodoInterNewton(estaturaaa,65,5.9,80,8,90,9.8,100,11.5,120,17.3);
+		yg5 = y;
+
+		var dif1, dif2, dif3, dif4, dif5;
+
+		dif1 = pesooo - yg1;
+		dif2 = pesooo - yg2;
+		dif3 = pesooo - yg3;
+		dif4 = pesooo - yg4;
+		dif5 = pesooo - yg5;
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso adecuada para la talla; ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo peso para la talla); ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso bajo para la talla o desnutricion aguda; ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion aguda severa; ';
+						}
+					}	
+				}
+			}	
+		}
+	}
+
+	//PESO - ESTATURA (0 - 2 años)
+	if (edaddd >=0 && edaddd <= 24){
+		MetodoInterNewton(estaturaaa,45,3.4,80,13.4,90,17,100,10,120,24.8);
+		yg1 = y;
+
+		MetodoInterNewton(estaturaaa,45,3,80,12.1,90,15,100,18,120,22.5);
+		yg2 = y;
+
+		MetodoInterNewton(estaturaaa,45,2.5,80,10,90,12.5,100,15,120,18.4);
+		yg3 = y;
+
+		MetodoInterNewton(estaturaaa,45,2.1,80,8.5,90,10.5,100,12.5,120,15.3);
+		yg4 = y;
+
+		MetodoInterNewton(estaturaaa,45,1.9,80,7.6,90,9.8,100,11.5,120,14);
+		yg5 = y;
+
+		var dif1, dif2, dif3, dif4, dif5;
+
+		dif1 = pesooo - yg1;
+		dif2 = pesooo - yg2;
+		dif3 = pesooo - yg3;
+		dif4 = pesooo - yg4;
+		dif5 = pesooo - yg5;
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso adecuada para la talla; ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo peso para la talla); ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso bajo para la talla o desnutricion aguda; ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion aguda severa; ';
+						}
+					}	
+				}
+			}	
+		}
+	}
+
+	
+}
+
+function calcularCrecimientoMasculino(){
+	var edaddd =  $("#email8").val();
+	var pesooo =  $("#address8").val();
+	var estaturaaa =  $("#tur8").val();
+	
+	var y1, y2, y3, y4, y5;
+
+	//PESO - EDAD
+		MetodoInterNewton(edaddd,2,8.1,6,11,12,13.2,14,14,60,27.9);
+		yg1 = y;
+
+		MetodoInterNewton(edaddd,2,7,6,10,12,12,14,12.7,60,24);
+		yg2 = y;
+
+		MetodoInterNewton(edaddd,2,5.5,6,8,12,9.8,14,10,60,18.1);
+		yg3 = y;
+
+		MetodoInterNewton(edaddd,2,4.3,6,6.4,12,7.9,14,8,60,14);
+		yg4 = y;
+
+		MetodoInterNewton(edaddd,2,3.8,6,5.6,12,7,14,7.2,60,12.2);
+		yg5 = y;
+
+		var dif1, dif2, dif3, dif4, dif5;
+
+		console.log('peso == ' + pesooo);
+		console.log('yg1 == ' + yg1);
+		console.log('yg2 == ' + yg2);
+		console.log('yg3 == ' + yg3);
+		console.log('yg4 == ' + yg4);
+		console.log('yg5 == ' + yg5);
+
+		dif1 = pesooo - yg1;
+		dif2 = pesooo - yg2;
+		dif3 = pesooo - yg3;
+		dif4 = pesooo - yg4;
+		dif5 = pesooo - yg5;
+
+		console.log('Dif 1 == ' + dif1);
+		console.log('Dif 2 == ' + dif2);
+		console.log('Dif 3 == ' + dif3);
+		console.log('Dif 4 == ' + dif4);
+		console.log('Dif 5 == ' + dif5);
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso adecuado para la edad, ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo peso para su edad), ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso bajo para la edad o desnutricion global, ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion global severa, ';
+						}
+					}	
+				}
+			}	
+		}
+
+	//ESTATURA - EDAD
+		MetodoInterNewton(edaddd,2,64,6,74,12,83,14,86,60,124);
+		yg1 = y;
+
+		MetodoInterNewton(edaddd,2,62,6,72,12,80,14,83,60,119);
+		yg2 = y;
+
+		MetodoInterNewton(edaddd,2,58,6,68,12,76,14,78,60,110);
+		yg3 = y;
+
+		MetodoInterNewton(edaddd,2,54,6,63,12,71,14,73,60,101);
+		yg4 = y;
+
+		MetodoInterNewton(edaddd,2,52,6,61,12,69,14,71,60,96);
+		yg5 = y;
+
+
+		dif1 = estaturaaa - yg1;
+		dif2 = estaturaaa - yg2;
+		dif3 = estaturaaa - yg3;
+		dif4 = estaturaaa - yg4;
+		dif5 = estaturaaa - yg5;
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' talla adecuada para la edad, ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo talla para la edad), ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' retraso de crecimiento o desnutricion cronica, ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion cronica severa, ';
+						}
+					}	
+				}
+			}	
+		}
+
+	//PESO - ESTATURA (2 - 5 años)
+	if (edaddd >24 && edaddd <= 60){
+		MetodoInterNewton(estaturaaa,65,9.6,80,13.7,90,16.6,100,19.9,120,31);
+		yg1 = y;
+
+		MetodoInterNewton(estaturaaa,65,8.9,80,12.5,90,15.2,100,18.2,120,27.1);
+		yg2 = y;
+
+		MetodoInterNewton(estaturaaa,65,7.5,80,10.5,90,12.9,100,15.4,120,22.4);
+		yg3 = y;
+
+		MetodoInterNewton(estaturaaa,65,6.4,80,9,90,11,100,13,120,18.5);
+		yg4 = y;
+
+		MetodoInterNewton(estaturaaa,65,6,80,8.4,90,10.3,100,12.1,120,17);
+		yg5 = y;
+
+		var dif1, dif2, dif3, dif4, dif5;
+
+		dif1 = pesooo - yg1;
+		dif2 = pesooo - yg2;
+		dif3 = pesooo - yg3;
+		dif4 = pesooo - yg4;
+		dif5 = pesooo - yg5;
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso adecuada para la talla, ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo peso para la talla), ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso bajo para la talla o desnutricion aguda, ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion aguda severa, ';
+						}
+					}	
+				}
+			}	
+		}
+	}
+
+	//PESO - ESTATURA (0 - 2 años)
+	if (edaddd >=0 && edaddd <= 24){
+		MetodoInterNewton(estaturaaa,45,3.4,55,6,65,9.4,75,12.4,110,24);
+		yg1 = y;
+
+		MetodoInterNewton(estaturaaa,45,3,55,5.5,65,8.6,75,11.3,110,21.9);
+		yg2 = y;
+
+		MetodoInterNewton(estaturaaa,45,2.5,55,4.5,65,7.3,75,9.5,110,18.3);
+		yg3 = y;
+
+		MetodoInterNewton(estaturaaa,45,2,55,3.8,65,6.2,75,8.1,110,15.5);
+		yg4 = y;
+
+		MetodoInterNewton(estaturaaa,45,1.8,55,3.5,65,5.8,75,7.5,110,14.2);
+		yg5 = y;
+
+		var dif1, dif2, dif3, dif4, dif5;
+
+		dif1 = pesooo - yg1;
+		dif2 = pesooo - yg2;
+		dif3 = pesooo - yg3;
+		dif4 = pesooo - yg4;
+		dif5 = pesooo - yg5;
+
+		/*dif1 = Math.abs(dif1);
+		dif2 = Math.abs(dif2);
+		dif3 = Math.abs(dif3);
+		dif4 = Math.abs(dif4);
+		dif5 = Math.abs(dif5);*/
+
+		// Positivo por encima, negativo abajo
+
+		if (dif1 >= 0){
+			//diagnostoicoCrecimiento = 'Tiene sobre peso';
+		}else{
+			if (dif2 >= 0){
+				//diagnostoicoCrecimiento = 'Tiene sobre peso';
+			}else{
+				if (dif3 >= 0){
+					diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso adecuada para la talla, ';
+				}else{
+					if (dif4 >= 0){
+						diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' a riesgo de desnutricion (con bajo peso para la talla), ';
+					}else{
+						if (dif5 >= 0){
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' peso bajo para la talla o desnutricion aguda, ';
+						}else{
+							diagnostoicoCrecimiento = diagnostoicoCrecimiento + ' desnutricion aguda severa, ';
+						}
+					}	
+				}
+			}	
+		}
+	}
+
+	
+}
 
 function addCrecimiento(){
-
+	calcularCrecimiento();
 	//spinnerplugin.show();
-	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '17', data: $('#formNewCrec').serialize(), email: emailLog})
+	$.post('http://bcontrol.herokuapp.com/server.php', {opcion: '17', data: $('#formNewCrec').serialize(), email: emailLog, diagnostico: diagnostoicoCrecimiento})
 			.done(function(data) {
 				console.log(data);
 				var convertidoAJson = JSON.parse(data);
@@ -929,7 +1491,7 @@ function addCrecimiento(){
 					$("#imc").val("");
 					//spinnerplugin.hide();
 					$.mobile.changePage('#well','slide');
-					$("#welHead").text("Gracias por escogernos");
+					$("#welHead").text("Gracias por escogernos! Tu diagnostico es: " + diagnostoicoCrecimiento);
 				}else{
 					//spinnerplugin.hide();
 					alert('Something was wrong!');
